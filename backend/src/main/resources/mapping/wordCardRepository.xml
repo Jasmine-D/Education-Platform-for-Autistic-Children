@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.backend.dao.wordCardRepository">
+    <select id="wordCard" resultType="Word_card">
+        <bind name="key_offset" value="(curPage-1)*pageNum"></bind>
+        select *
+        from word_card
+        where set_id = #{setId}
+        limit #{key_offset},#{pageNum}
+    </select>
+
+    <select id="wordCardNum" resultType="java.lang.Integer">
+        select count(*)
+        from word_card
+        where set_id = #{setId}
+    </select>
+
+    <insert id="uploadWordCard" parameterType="Word_card" useGeneratedKeys="true" keyProperty="card_id" >
+        insert into word_card (set_id, card_name, card_content, audio_url, pic_url)
+        VALUES
+        (#{set_id}, #{card_name}, #{card_content}, #{audio_url}, #{pic_url}) ;
+    </insert>
+
+    <delete id="deleteWordCard" parameterType="java.lang.Integer">
+        delete from word_card
+        where card_id = #{cardId}
+    </delete>
+
+    <update id="updateCardNum" >
+        update word_set
+        set card_num = #{cardNum}
+        where set_id = #{setId}
+    </update>
+
+    <select id="setIdforCardId" resultType="java.lang.Integer">
+        select set_id
+        from word_card
+        where card_id=#{cardId}
+    </select>
+
+</mapper>
