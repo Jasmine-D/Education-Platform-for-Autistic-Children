@@ -153,7 +153,7 @@
                         <div class="reportTitle">
                             <span>填写学习报告</span>
                         </div>
-                        <q-input outlined rounded v-model="report.teacher" label="辅导老师：" clearable class="teacherName">
+                        <q-input outlined rounded v-model="report.teacher" label="辅导老师：" clearable class="teacherName" maxlength="12" counter>
                             <template v-slot:prepend>
                                 <q-icon name="assignment_ind"></q-icon>
                             </template>
