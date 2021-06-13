@@ -9,11 +9,14 @@ import com.example.backend.domain.Word_set;
 import com.example.backend.service.ossService;
 import com.example.backend.service.wordCardService;
 import io.swagger.annotations.ApiOperation;
+
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+
 import java.io.IOException;
+
 import java.util.List;
 
 @RestController
@@ -66,66 +69,106 @@ public class wordCardController {
             @RequestParam(value="audiofile") MultipartFile audiofile,
             @RequestParam(value="picfile") MultipartFile picfile
     ) throws IOException {
+        int flag = 0;
+        if (!audiofile.isEmpty()&&!picfile.isEmpty()) {
+            //对文件的全名进行截取然后在后缀名进行删选。
+            int begin = audiofile.getOriginalFilename().indexOf(".");
+            int last = audiofile.getOriginalFilename().length();
+            //获得文件后缀名
+            String a = audiofile.getOriginalFilename().substring(begin, last);
+
+            int begin2 = picfile.getOriginalFilename().indexOf(".");
+            int last2 = picfile.getOriginalFilename().length();
+            //获得文件后缀名
+            String b = picfile.getOriginalFilename().substring(begin2, last2);
+            //System.out.println(a+"  "+b);
+
+            boolean flag1 = a.equals(".m4a")||a.equals(".wav")||a.equals(".mp3")||a.equals(".wma");
+            boolean flag2 = b.equals(".jpg")||b.equals(".png")||b.equals(".gif");
+
+            if(flag1&&flag2)
+            {
+                flag=1;
+            }
+        }
+
         int uploadResult = 0;
-        String audio_Url = ossService.uploadFile(audiofile);
-        String pic_Url = ossService.uploadFile(picfile);
-
-        JSONObject jsonObject=new JSONObject();
-        jsonObject.put("audio_Url",audio_Url);
-        jsonObject.put("pic_Url",pic_Url);
-        Word_card word_card = new Word_card(setId,cardName,cardContent,audio_Url,pic_Url);
-        try {
-            uploadResult = wordcardService.uploadWordCard(word_card);
-        } catch (Exception e){
-            uploadResult = 0;
-            System.out.println("upload word card error");
-        } finally {
-        }
-
         int updateResult = 0;
-        try {
-            int cardNum = wordcardService.wordCardNum(setId);
-            updateResult = wordcardService.updateCardNum(setId,cardNum);
-        } catch (Exception e){
-            updateResult = 0;
-            System.out.println("update word set error");
-        } finally {
-        }
 
-        if(uploadResult != 0 && updateResult != 0){
-            jsonObject.put("isSucceed",true);
-            return new jsonResult(jsonObject, "Success");
-        }else{
-            jsonObject.put("isSucceed",false);
+        if(flag==1) {
+            String audio_Url = ossService.uploadFile(audiofile);
+            String pic_Url = ossService.uploadFile(picfile);
+
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("audio_Url", audio_Url);
+            jsonObject.put("pic_Url", pic_Url);
+            Word_card word_card = new Word_card(setId, cardName, cardContent, audio_Url, pic_Url);
+            try {
+                uploadResult = wordcardService.uploadWordCard(word_card);
+            } catch (Exception e) {
+                uploadResult = 0;
+                System.out.println("upload word card error");
+            } finally {
+            }
+
+            try {
+                int cardNum = wordcardService.wordCardNum(setId);
+                updateResult = wordcardService.updateCardNum(setId, cardNum);
+            } catch (Exception e) {
+                updateResult = 0;
+                System.out.println("update word set error");
+            } finally {
+            }
+
+            if (uploadResult != 0 && updateResult != 0) {
+                jsonObject.put("isSucceed", true);
+                return new jsonResult(jsonObject, "Success");
+            } else {
+                jsonObject.put("isSucceed", false);
+                return new jsonResult(jsonObject, "Upload or Update Error");
+            }
+        }
+        else{
+            JSONObject jsonObject = new JSONObject();
             return new jsonResult(jsonObject, "Upload or Update Error");
         }
     }
 
     @ApiOperation(value="删除单词卡", notes="根据指定cardId删除单词卡")
     @DeleteMapping("/DeleteWordCard")
-    public jsonResult deleteWordSet (
+    public jsonResult deleteWordCard(
             @RequestParam Integer cardId
     ) {
         int deleteResult=0;
         JSONObject jsonObject=new JSONObject();
+        int setId=-1;
 
         int updateResult = 0;
-        int setId = wordcardService.setIdforCardId(cardId);
+
         try {
-            deleteResult = wordcardService.deleteWordCard(cardId);
-            //sqlSession.commit();
-        } catch (Exception e) {
-            System.out.println("delete error");
+            setId = wordcardService.setIdforCardId(cardId);
+        }catch (Exception e) {
+            System.out.println("The cardId doesn't exist!");
         } finally {
         }
 
-        try {
-            int cardNum = wordcardService.wordCardNum(setId);
-            updateResult = wordcardService.updateCardNum(setId,cardNum);
-        } catch (Exception e){
-            updateResult = 0;
-            System.out.println("update word set error");
-        } finally {
+        if(setId!=-1) {
+            try {
+                deleteResult = wordcardService.deleteWordCard(cardId);
+                //sqlSession.commit();
+            } catch (Exception e) {
+                System.out.println("delete error");
+            } finally {
+            }
+
+            try {
+                int cardNum = wordcardService.wordCardNum(setId);
+                updateResult = wordcardService.updateCardNum(setId, cardNum);
+            } catch (Exception e) {
+                updateResult = 0;
+                System.out.println("update word set error");
+            } finally {
+            }
         }
 
         if(deleteResult != 0 && updateResult != 0){
@@ -136,7 +179,5 @@ public class wordCardController {
             return new jsonResult(jsonObject, "Delete or Update Error");
         }
     }
-
-
 
 }
