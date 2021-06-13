@@ -7,6 +7,7 @@ import com.example.backend.dao.reportRepository;
 import com.example.backend.domain.Report;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -85,6 +86,45 @@ public class reportControllerTest {
         int scene_id=1001;
         jsonResult result=reportController.createReport(user_id,scene_id,score,comment,teacher);
         result.printResult();
+    }
+
+    @Test
+    public void viewReportPath1() throws Exception{
+        System.out.println("viewReportPath1:");
+        int user_id=1015;
+        int scene_id=1001;
+        jsonResult result=reportController.getAllReport(user_id);
+        result.printmsg();
+    }
+    @Test
+    public void viewReportPath2() throws Exception{
+        System.out.println("viewReportPath2:");
+        int user_id=1003;
+        int scene_id=1001;
+        jsonResult result=reportController.getAllReport(user_id);
+        result.printmsg();
+    }
+
+    @Test
+    public void viewReportPath3() throws Exception{
+        System.out.println("viewReportPath3:");
+        int user_id=1006;
+        int scene_id=1002;
+        jsonResult result=reportController.getAllReport(user_id);
+        result.printmsg();
+        jsonResult result2=reportController.getSomeReport(user_id,scene_id);
+        result2.printmsg();
+    }
+
+    @Test
+    public void viewReportPath4() throws Exception{
+        System.out.println("viewReportPath4:");
+        int user_id=1002;
+        int scene_id=1005;
+        jsonResult result=reportController.getAllReport(user_id);
+        result.printmsg();
+        jsonResult result2=reportController.getSomeReport(user_id,scene_id);
+        result2.printmsg();
     }
 
 }

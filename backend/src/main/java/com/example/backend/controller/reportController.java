@@ -25,15 +25,32 @@ public class reportController {
     @GetMapping(value = "/getAllReport")
     @ApiOperation(value = "获取某个用户所有学习报告", notes = "根据用户id查找某个用户所有学习报告")
     public jsonResult getAllReport(@RequestParam("user_id") int user_id){
-        JSONObject jsonObject=reportService.getAllReport(user_id);
-        return new jsonResult<>(jsonObject,"获取学习报告成功");
+        if(userService.userExist(user_id)){
+            JSONObject jsonObject=reportService.getAllReport(user_id);
+            if(jsonObject.getIntValue("total")==0){
+                return new jsonResult<>(jsonObject,"该用户没有已生成的学习报告！");
+            }
+            else{
+                return new jsonResult<>(jsonObject,"获取用户的学习报告列表成功！");
+            }
+
+        }
+        else{
+            return  new jsonResult<>(false,"用户不存在，获取学习报告失败！");
+        }
+
     }
 
     @GetMapping(value="/getSomeReport",produces = "application/json;charset=UTF-8")
     @ApiOperation(value="获取某个用户在某个场景的学习报告",notes="根据用户id和场景id查找学习报告")
     public jsonResult getSomeReport(int user_id,int scene_id){
         JSONObject jsonObject=reportService.findSomeReport(user_id,scene_id);
-        return new jsonResult<>(jsonObject,"已存在学习报告！");
+        if(jsonObject.getBooleanValue("exist")){
+            return new jsonResult<>(jsonObject,"存在该场景学习报告！");
+        }
+        else{
+            return new jsonResult<>(jsonObject,"不存在该场景学习报告！");
+        }
     }
 
     @PostMapping(value="/createReport")
