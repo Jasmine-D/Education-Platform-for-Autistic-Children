@@ -423,7 +423,30 @@ export default {
             this.popUp=true;
         },
         submit(){//生成报告
-            
+            if(this.report.teacher==''){
+                this.$q.notify({
+                    type: 'negative',
+                    message: `请输入辅导老师名字！`,
+                    position: 'top'
+                });
+                return;
+            }
+            else if(this.report.score==0){
+                this.$q.notify({
+                    type: 'negative',
+                    message: `请进行打分！`,
+                    position: 'top'
+                });
+                return;
+            }
+            else if(this.report.comment==''){
+                this.$q.notify({
+                    type: 'negative',
+                    message: `请输入评语！`,
+                    position: 'top'
+                });
+                return;
+            }
             if(this.existReport){
                 this.modifySceneReport();
             }else{
