@@ -269,4 +269,14 @@ public class sceneService {
     public void insertQuestion(int scene_id,String content,String pic_url){//插入场景问题
         sceneQuestionRepository.insertQuestion(scene_id,content,pic_url);
     }
+
+    public boolean sceneExist(int scene_id){
+        List<Scene> scenes=sceneRepository.findSceneById(scene_id);
+        if(scenes.size()==0){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
 }

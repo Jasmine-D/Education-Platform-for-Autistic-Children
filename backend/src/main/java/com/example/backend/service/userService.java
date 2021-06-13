@@ -51,6 +51,16 @@ public class userService {
         return jsonObject;
     }
 
+    public boolean userExist(int user_id){
+        List<User> users=userRepository.findUserById(user_id);
+        if(users.size()==0){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
     public void modifyAvatar(int user_id, String avatar){
         userRepository.modifyAvatar(user_id,avatar);
     }

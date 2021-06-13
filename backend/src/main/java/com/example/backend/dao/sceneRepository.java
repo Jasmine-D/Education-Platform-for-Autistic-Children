@@ -17,7 +17,8 @@ public interface sceneRepository extends JpaRepository<Scene, Integer> {
     List<Scene> findSceneByName(String key);
     @Query(value="select * from scene where is_delete=0 AND creator=?1",nativeQuery = true)
     List<Scene> findCreatedScene(String creator);
-
+    @Query(value="select * from scene where scene_id=?1 AND is_delete=0",nativeQuery = true)
+    List<Scene> findSceneById(int user_id);
     @Query(value = "select is_collect from scene_collect where user_id=?1 AND scene_id=?2",nativeQuery = true)
     List<Integer> querySceneCollect(int user_id,int scene_id);
     @Modifying

@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.example.backend.dao.reportRepository;
 import com.example.backend.dao.sceneRepository;
+import com.example.backend.dao.userRepository;
 import com.example.backend.domain.Report;
 import com.example.backend.domain.Scene;
 import org.springframework.stereotype.Service;
@@ -63,6 +64,7 @@ public class reportService {
         }
         return jsonObject;
     }
+
 
     public void insertReport(int user_id, int scene_id, Date time,int score,String comment,String teacher){
         reportRepository.insertReport(user_id,scene_id,time,score,comment,teacher);

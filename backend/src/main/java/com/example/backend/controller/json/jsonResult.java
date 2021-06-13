@@ -72,4 +72,8 @@ public class jsonResult<T> {
         this.msg = msg;
     }
 
+    public void printResult(){
+        System.out.println("data:"+this.data);
+        System.out.println("message:"+this.msg);
+    }
 }

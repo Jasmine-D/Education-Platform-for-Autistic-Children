@@ -4,6 +4,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.example.backend.controller.json.jsonResult;
 import com.example.backend.domain.Report;
 import com.example.backend.service.reportService;
+import com.example.backend.service.sceneService;
+import com.example.backend.service.userService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,7 +18,10 @@ import java.util.Date;
 public class reportController {
     @Resource
     private reportService reportService;
-
+    @Resource
+    private sceneService sceneService;
+    @Resource
+    private userService userService;
     @GetMapping(value = "/getAllReport")
     @ApiOperation(value = "获取某个用户所有学习报告", notes = "根据用户id查找某个用户所有学习报告")
     public jsonResult getAllReport(@RequestParam("user_id") int user_id){
@@ -40,9 +45,20 @@ public class reportController {
             @RequestParam("comment") String comment,
             @RequestParam("teacher") String teacher
     ){
-        Report report=new Report();
-        reportService.insertReport(user_id,scene_id,report.getTime(),score,comment,teacher);
-        return  new jsonResult<>(true,"创建学习报告成功");
+        if(userService.userExist(user_id)){
+            if(sceneService.sceneExist(scene_id)){
+                Report report=new Report();
+                reportService.insertReport(user_id,scene_id,report.getTime(),score,comment,teacher);
+                return  new jsonResult<>(true,"创建学习报告成功");
+            }
+            else{
+                return  new jsonResult<>(false,"场景不存在，创建学习报告失败！");
+            }
+        }
+        else {
+            return  new jsonResult<>(false,"用户不存在，创建学习报告失败！");
+        }
+
     }
 
     @PostMapping(value="/modifyReport")
