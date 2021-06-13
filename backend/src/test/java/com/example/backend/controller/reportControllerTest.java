@@ -1,6 +1,10 @@
 package com.example.backend.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.example.backend.controller.json.jsonResult;
+import com.example.backend.dao.reportRepository;
+import com.example.backend.domain.Report;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,6 +15,8 @@ import org.springframework.test.context.web.WebAppConfiguration;
 
 import javax.annotation.Resource;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -19,6 +25,8 @@ import static org.junit.Assert.*;
 public class reportControllerTest {
     @Resource
     private reportController reportController;
+    @Resource
+    private reportRepository reportRepository;
     @Before
     public void setUp() throws Exception {
         System.out.println("==============Testing Start!=============");
@@ -28,30 +36,55 @@ public class reportControllerTest {
     public void tearDown() throws Exception {
         System.out.println("===============Testing End!==============");
     }
-
     @Test
-    public void TestPath1() throws Exception{
-        int user_id=1005;
-        int scene_id=1001;
+    public void createReportPath1() throws Exception{
+        System.out.println("createReportPath1:");
+        String teacher="小张";
         int score=5;
         String comment="非常好！";
-        String teacher="小张";
+        int user_id=1012;
+        int scene_id=1001;
         jsonResult result=reportController.createReport(user_id,scene_id,score,comment,teacher);
         result.printResult();
     }
 
     @Test
-    public void TestPath2() throws Exception{
-
+    public void createReportPath2() throws Exception{
+        System.out.println("createReportPath2:");
+        String teacher="小张";
+        int score=5;
+        String comment="非常好！";
+        int user_id=1005;
+        int scene_id=1010;
+        jsonResult result=reportController.createReport(user_id,scene_id,score,comment,teacher);
+        result.printResult();
     }
 
     @Test
-    public void TestPath3() throws Exception{
-
+    public void createReportPath3() throws Exception{
+        System.out.println("createReportPath3:");
+        String teacher="小张";
+        int score=5;
+        String comment="非常好！";
+        int user_id=1002;
+        int scene_id=1001;
+        jsonResult report=reportController.getSomeReport(user_id,scene_id);
+        report.printmsg();
+        List<Report> reports=reportRepository.querySomeReport(user_id,scene_id);
+        jsonResult result=reportController.modifyReport(reports.get(0).getReport_id(),score,comment,teacher);
+        result.printResult();
     }
 
     @Test
-    public void TestPath4() throws Exception{
-
+    public void createReportPath4() throws Exception{
+        System.out.println("createReportPath4:");
+        String teacher="小张";
+        int score=5;
+        String comment="非常好！";
+        int user_id=1005;
+        int scene_id=1001;
+        jsonResult result=reportController.createReport(user_id,scene_id,score,comment,teacher);
+        result.printResult();
     }
+
 }

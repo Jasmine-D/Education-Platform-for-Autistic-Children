@@ -33,7 +33,7 @@ public class reportController {
     @ApiOperation(value="获取某个用户在某个场景的学习报告",notes="根据用户id和场景id查找学习报告")
     public jsonResult getSomeReport(int user_id,int scene_id){
         JSONObject jsonObject=reportService.findSomeReport(user_id,scene_id);
-        return new jsonResult<>(jsonObject);
+        return new jsonResult<>(jsonObject,"已存在学习报告！");
     }
 
     @PostMapping(value="/createReport")
@@ -71,6 +71,6 @@ public class reportController {
     ){
         Report report=new Report();
         reportService.updateReport(report_id,report.getTime(),score,comment,teacher);
-        return  new jsonResult<>(true,"更新学习报告成功");
+        return  new jsonResult<>(true,"更新学习报告成功!");
     }
 }
