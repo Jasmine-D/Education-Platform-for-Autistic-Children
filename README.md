@@ -2,15 +2,15 @@
 ## Description
 Our WebApp helps children with autism communicate better through situational dialogues and provides an educational platform for teachers to upload multimedia learning materials. Using advanced speech tech, it enhances interactivity, aiming to reduce speech disorders and improve their quality of life.
 ## Features
-- **Account Management Module:**
+- **Account Management Module:** <br>
   Two roles for users -- student and teacher, with different access to functions
-- **Scene Module:**
+- **Scene Module:** <br>
   Enable search, view, collect for all users, combined with speech synthesis and speech recognition from open API provided by Baidu
-- **Word Set Module:**
+- **Word Set Module:** <br>
   Enable search, view, collect for all users, combined with speech recognition from open API provided by Baidu
-- **Study Report Module:**
+- **Study Report Module:** <br>
   Enable create, view, download for all users
-- **DIY Module:**
+- **DIY Module:** <br>
   Enable create scene/word set/word card, delete scene/word set/word card, set public/private for scene/word set, manage password for private scene/word set
 ## Tech Stack
 - **Frontend:** Vue, Quasar
