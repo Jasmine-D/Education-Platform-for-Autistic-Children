@@ -10,7 +10,7 @@ Our WebApp helps children with autism communicate better through situational dia
   Enable search, view, collect for all users, combined with speech recognition from open API provided by Baidu
 - **Study Report Module:**
   Enable create, view, download for all users
-- ** DIY Module:**
+- **DIY Module:**
   Enable create scene/word set/word card, delete scene/word set/word card, set public/private for scene/word set, manage password for private scene/word set
 ## Tech Stack
 - **Frontend:** Vue, Quasar
