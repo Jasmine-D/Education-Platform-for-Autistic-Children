@@ -23,6 +23,7 @@ Our WebApp helps children with autism communicate better through situational dia
 ## Software Architecture
 ### Overall Architecture
 <img width="480" alt="image" src="https://github.com/Jasmine-D/Education-Platform-for-Autistic-Children/assets/49736511/65718a60-082d-4f20-9cf1-366869cd9ffd">
+
 ### Backend Architecture
 <img width="498" alt="image" src="https://github.com/Jasmine-D/Education-Platform-for-Autistic-Children/assets/49736511/5c75f7bc-c7c6-4211-bdb5-8f1f195f186f">  
 
