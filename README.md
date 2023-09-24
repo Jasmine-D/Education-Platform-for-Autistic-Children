@@ -1,7 +1,7 @@
 # Education Platform for Autistic Children
 ## Description
-Our WebApp helps children with autism communicate better through situational dialogues and provides an educational platform for teachers to upload multimedia learning materials. Using advanced speech tech, it enhances interactivity, aiming to reduce speech disorders and improve their quality of life.
-Demo: https://drive.google.com/file/d/1F79hGYNeOcf9RVDlJUN1uWdW_g6qxI7n/view?usp=drive_link
+Our WebApp helps children with autism communicate better through situational dialogues and provides an educational platform for teachers to upload multimedia learning materials. Using advanced speech tech, it enhances interactivity, aiming to reduce speech disorders and improve their quality of life.  
+**Demo:** https://drive.google.com/file/d/1F79hGYNeOcf9RVDlJUN1uWdW_g6qxI7n/view?usp=drive_link
 ## Features
 - **Account Management Module:**  
   Two roles for users -- student and teacher, with different access to functions
