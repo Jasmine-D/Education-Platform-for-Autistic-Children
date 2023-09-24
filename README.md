@@ -22,10 +22,10 @@ Our WebApp helps children with autism communicate better through situational dia
 - **Media File Storage:** OSS (Object Storage Service)
 ## Software Architecture
 ### Overall Architecture
-<img width="480" alt="image" src="https://github.com/Jasmine-D/Education-Platform-for-Autistic-Children/assets/49736511/65718a60-082d-4f20-9cf1-366869cd9ffd">
+<img width="539" alt="image" src="https://github.com/Jasmine-D/Education-Platform-for-Autistic-Children/assets/49736511/55b106b0-193f-4d21-9bbd-68a130a05ea9">
 
 ### Backend Architecture
-<img width="498" alt="image" src="https://github.com/Jasmine-D/Education-Platform-for-Autistic-Children/assets/49736511/5c75f7bc-c7c6-4211-bdb5-8f1f195f186f">  
+<img width="523" alt="image" src="https://github.com/Jasmine-D/Education-Platform-for-Autistic-Children/assets/49736511/3da9f0c6-4edb-439e-8852-3a47ba08a056">
 
 ## Screenshots
 ### Home Page
