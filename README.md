@@ -21,19 +21,20 @@ Our WebApp helps children with autism communicate better through situational dia
 - **Media File Storage:** OSS (Object Storage Service)
 ## Screenshots
 ### Home Page
-<img width="1204" alt="image" src="https://github.com/Jasmine-D/Education-Platform-for-Autistic-Children/assets/49736511/e74c248a-c786-49d3-8be1-6b8bcd1f3118">
+<img width="1100" alt="image" src="https://github.com/Jasmine-D/Education-Platform-for-Autistic-Children/assets/49736511/4d0b7654-b8af-4d09-80cd-a4c1f2b926df">
 
 ### Scene Page
-<img width="1200" alt="image" src="https://github.com/Jasmine-D/Education-Platform-for-Autistic-Children/assets/49736511/d8937375-efc2-42a9-99b0-30b2919fb043">
+<img width="1092" alt="image" src="https://github.com/Jasmine-D/Education-Platform-for-Autistic-Children/assets/49736511/81bb89a6-d7e1-485b-94c5-b1a6564b05a6">
 
 ### Word Card Page
-<img width="1199" alt="image" src="https://github.com/Jasmine-D/Education-Platform-for-Autistic-Children/assets/49736511/47df6789-2d2b-465c-9fae-d15ef7253773">
+<img width="1093" alt="image" src="https://github.com/Jasmine-D/Education-Platform-for-Autistic-Children/assets/49736511/1ed02109-d938-486b-93e9-0931142bc73a">
 
 ### Study Report Page
-<img width="912" alt="image" src="https://github.com/Jasmine-D/Education-Platform-for-Autistic-Children/assets/49736511/3ba92ed0-f03f-48f0-ae05-4f5e7b486454">
+<img width="891" alt="image" src="https://github.com/Jasmine-D/Education-Platform-for-Autistic-Children/assets/49736511/bac70f7c-df6d-4398-aa97-a2d33708b49b">
 
 ### DIY Page
-<img width="1129" alt="image" src="https://github.com/Jasmine-D/Education-Platform-for-Autistic-Children/assets/49736511/7d7fe7b9-630a-47ea-b4f3-5c13c3a69cfa">
+<img width="953" alt="image" src="https://github.com/Jasmine-D/Education-Platform-for-Autistic-Children/assets/49736511/ad085043-27ff-4cfc-8d9c-d8a254502046">
+<img width="955" alt="image" src="https://github.com/Jasmine-D/Education-Platform-for-Autistic-Children/assets/49736511/c0e1300c-bdff-4a90-a5bd-4f7477308529">
 
 ### Collection Page
-<img width="1113" alt="image" src="https://github.com/Jasmine-D/Education-Platform-for-Autistic-Children/assets/49736511/f2d500ed-7596-45e1-9434-d1754919e2fe">
+<img width="1040" alt="image" src="https://github.com/Jasmine-D/Education-Platform-for-Autistic-Children/assets/49736511/bc9d9f1a-f9f5-4105-83db-432073a00436">
