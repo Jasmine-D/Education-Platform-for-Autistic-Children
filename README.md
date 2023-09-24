@@ -1,7 +1,9 @@
 # Education Platform for Autistic Children
 **Demo:** https://drive.google.com/file/d/1F79hGYNeOcf9RVDlJUN1uWdW_g6qxI7n/view?usp=drive_link
+
 ## Description
 Our WebApp helps children with autism communicate better through situational dialogues and provides an educational platform for teachers to upload multimedia learning materials. Using advanced speech technology, it enhances interactivity, aiming to reduce speech disorders and improve their quality of life.  
+
 ## Features
 - **Account Management Module:**  
   Two roles for users -- student and teacher, with different access to functions
@@ -13,6 +15,7 @@ Our WebApp helps children with autism communicate better through situational dia
   Enable create, view, download for all users
 - **DIY Module:** <br>
   Enable create scene/word set/word card, delete scene/word set/word card, set public/private for scene/word set, manage password for private scene/word set
+  
 ## Tech Stack
 - **Frontend:** Vue, Quasar
 - **Backend:** Spring Boot
@@ -20,6 +23,7 @@ Our WebApp helps children with autism communicate better through situational dia
 - **Data Storage:** MySQL
 - **API document:** Swagger UI
 - **Media File Storage:** OSS (Object Storage Service)
+
 ## Software Architecture
 ### Overall Architecture
 <img width="539" alt="image" src="https://github.com/Jasmine-D/Education-Platform-for-Autistic-Children/assets/49736511/55b106b0-193f-4d21-9bbd-68a130a05ea9">
