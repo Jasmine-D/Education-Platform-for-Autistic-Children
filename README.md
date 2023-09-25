@@ -22,7 +22,7 @@ Our WebApp helps children with autism communicate better through situational dia
 - **Persistence Framework:** MyBatis, JPA
 - **Data Storage:** MySQL
 - **API document:** Swagger UI
-- **Media File Storage:** OSS (Object Storage Service)
+- **Media File Storage:** Aliyun OSS (Object Storage Service)
 
 ## Software Architecture
 ### Overall Architecture
